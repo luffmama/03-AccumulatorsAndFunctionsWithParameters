@@ -15,7 +15,8 @@ def main():
     """ Calls the other functions to demonstrate and/or test them. """
     # Test your functions by putting calls to them here:
     two_circles()
-
+    circle_and_rectangle()
+    lines()
 def two_circles():
     """
     -- Constructs an rg.RoseWindow.
@@ -76,7 +77,7 @@ def circle_and_rectangle():
            150.0
     """
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement this function, per its green doc-string above.
+    # DONE: 3. Implement this function, per its green doc-string above.
     #   -- ANY objects that meet the criteria are fine.
     # Put a statement in   main   to test this function
     #    (by calling this function).
@@ -84,8 +85,30 @@ def circle_and_rectangle():
     # IMPORTANT: Use the DOT TRICK to guess the names of the relevant
     #       instance variables for outline thickness, etc.
     # -------------------------------------------------------------------------
-
-
+    window = rg.RoseWindow(400,400)
+    pointc = rg.Point(300,300)
+    x = rg.Point(200,10)
+    y = rg.Point(10,200)
+    c = rg.Circle(pointc,30)
+    c.fill_color = "blue"
+    c.outline_thickness = 1
+    r = rg.Rectangle(x,y)
+    r.fill_color = "red"
+    r.outline_thickness = 2
+    c.attach_to(window)
+    r.attach_to(window)
+    window.render()
+    print(c.outline_thickness)
+    print(c.fill_color)
+    print(pointc)
+    print(pointc.x)
+    print(pointc.y)
+    print(r.outline_thickness)
+    print(r.fill_color)
+    print(r.get_center())
+    print(r.get_center().x)
+    print(r.get_center().y)
+    window.close_on_mouse_click()
 def lines():
     """
     -- Constructs a rg.RoseWindow.
@@ -108,8 +131,23 @@ def lines():
 
     -- Waits for the user to press the mouse, then closes the window.
     """
-    # TODO: 4. Implement and test this function.
-
+    # DONE: 4. Implement and test this function.
+    window = rg.RoseWindow()
+    p1 = rg.Point(10,10)
+    p2 = rg.Point(50,25)
+    p3 = rg.Point(200,200)
+    p4 = rg.Point(150,190)
+    l1 = rg.Line(p1,p2)
+    l2 = rg.Line(p3,p4)
+    l2.thickness = 5
+    x = l2.get_midpoint()
+    l1.attach_to(window)
+    l2.attach_to(window)
+    window.render()
+    print(x)
+    print(x.x)
+    print(x.y)
+    window.close_on_mouse_click()
 
 # -----------------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
